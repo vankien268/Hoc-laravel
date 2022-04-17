@@ -1,0 +1,9 @@
+<?php 
+
+$birdays = User::whereRaw('DAYOFYEAR(curdate()) < DAYOFYEAR(created_at) AND DAYOFYEAR(curdate())+15 >= DAYOFYEAR(created_at) ')
+->orderByRaw('DAYOFYEAR(created_at)')->get();
+// thực hiện lấy tất cả ngày sắp sn sinh viên khi 1 giáo viên đăng nhập.
+//        $birday_students = User::whereIn('id', auth()->user()->students()->pluck('id'))->whereRaw('DAYOFYEAR(curdate()) < DAYOFYEAR(created_at) AND DAYOFYEAR(curdate())+15 >= DAYOFYEAR(created_at) ')
+//            ->orderByRaw('DAYOFYEAR(created_at)')->get();
+
+?>
